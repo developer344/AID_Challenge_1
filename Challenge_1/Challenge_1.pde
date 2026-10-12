@@ -15,7 +15,7 @@ import processing.serial.*;
 
 // ---------- settings ----------
 String participant = "P01";
-int TRIALS_PER_TYPE   = 10;       // 20 visual, 20 auditory
+int TRIALS_PER_TYPE   = 10;       // 10 visual, 10 auditory
 int FOREPERIOD_MIN    = 1000;     // ms, random wait before the stimulus
 int FOREPERIOD_MAX    = 4000;
 int RESPONSE_WINDOW   = 2000;     // ms, max time to respond

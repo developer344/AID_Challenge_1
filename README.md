@@ -6,34 +6,30 @@ A small reaction-time experiment that compares how fast people respond to a **vi
 
 | File | Description |
 |------|-------------|
-| `Challenge_1.java` | The Processing sketch that runs the experiment |
-| `Challenge_01.pdf` | The challenge brief, with wiring and setup notes |
+| `Challenge_1/Challenge_1.pde` | The Processing sketch that runs the experiment |
+| `Challenge_01.pdf` | Three-slide presentation of the project: setup, wiring and how the sketch works |
 
 ## Hardware
 
-- Arduino Uno (or a compatible board)
-- Push button
+- Arduino with a Grove base shield
+- Grove push button module
 - LED and a 220 Ω resistor
-- Active buzzer (it beeps when its pin is driven HIGH)
-- Breadboard and jumper wires
+- Grove buzzer module (an active buzzer: it beeps while its pin is HIGH)
+- Grove cables and wires
 
 ### Wiring
 
 | Component | Arduino pin | Connection |
 |-----------|-------------|------------|
-| Button | D2 | D2 → button → GND (uses the internal pull-up) |
+| Button | D2 | Grove button module. The pin is set to input with pull-up, and the module outputs HIGH when pressed |
 | LED | D4 | D4 → 220 Ω → LED anode, LED cathode → GND |
-| Buzzer | D6 | D6 → buzzer (+), buzzer (−) → GND |
+| Buzzer | D6 | D6 → buzzer (+), buzzer (−) → GND. It is switched on and off with digital HIGH/LOW, not PWM |
 
 ## Setup
 
 1. **Flash the Arduino:** in the Arduino IDE, open *File → Examples → Firmata → StandardFirmata* and upload it to the board.
 2. **Install Processing** (version 4 recommended). The sketch uses the built-in `processing.serial` library.
-3. **Open the sketch:** Processing expects the sketch to live in a folder with the same name and to use a `.pde` extension. For example:
-   ```
-   Challenge_1/
-   └── Challenge_1.pde   (copy or rename of Challenge_1.java)
-   ```
+3. **Open the sketch:** open `Challenge_1/Challenge_1.pde` in Processing.
 4. **Choose the serial port:** when the sketch starts, it prints the available ports to the console. Set `SERIAL_INDEX` to the index of your Arduino's port.
 
 ## Configuration
