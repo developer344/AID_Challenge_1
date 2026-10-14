@@ -6,7 +6,7 @@ A small reaction-time experiment that compares how fast people respond to a **vi
 
 | File | Description |
 |------|-------------|
-| `Challenge_1/Challenge_1.pde` | The Processing sketch that runs the experiment |
+| `Challenge_01.pde` | The Processing sketch that runs the experiment |
 | `Challenge_01.pdf` | Three-slide presentation of the project: setup, wiring and how the sketch works |
 
 ## Hardware
@@ -29,7 +29,7 @@ A small reaction-time experiment that compares how fast people respond to a **vi
 
 1. **Flash the Arduino:** in the Arduino IDE, open *File → Examples → Firmata → StandardFirmata* and upload it to the board.
 2. **Install Processing** (version 4 recommended). The sketch uses the built-in `processing.serial` library.
-3. **Open the sketch:** open `Challenge_1/Challenge_1.pde` in Processing.
+3. **Open the sketch:** open `Challenge_01.pde` in Processing. Processing needs the sketch to sit in a folder with the same name, so the first time you open it, it offers to create a `Challenge_01/` folder and move the file there. Accept.
 4. **Choose the serial port:** when the sketch starts, it prints the available ports to the console. Set `SERIAL_INDEX` to the index of your Arduino's port.
 
 ## Configuration
@@ -43,7 +43,7 @@ These settings are at the top of the sketch:
 | `FOREPERIOD_MIN` / `FOREPERIOD_MAX` | `1000` / `4000` ms | Range of the random wait before each stimulus |
 | `RESPONSE_WINDOW` | `2000` ms | Maximum time allowed to respond |
 | `ITI` | `800` ms | Pause between trials |
-| `SERIAL_INDEX` | `4` | Index of the Arduino in `Serial.list()` |
+| `SERIAL_INDEX` | `3` | Index of the Arduino in `Serial.list()` |
 | `BAUD` | `57600` | Must match `Firmata.begin(...)` in StandardFirmata |
 
 Change `participant` before each session so that runs don't get mixed up.
@@ -79,7 +79,7 @@ data/<participant>_reaction_times_<YYYYMMDD>_<HHMM>.csv
 | `trial` | Trial number (starting at 1) |
 | `stimulus` | `visual` or `auditory` |
 | `foreperiod_ms` | Random wait before the stimulus |
-| `rt_ms` | Reaction time in ms (left empty unless the outcome is `ok`) |
+| `rt_ms` | Reaction time in ms, always written with a decimal point (left empty unless the outcome is `ok`) |
 | `outcome` | `ok`, `false_start` or `timeout` |
 
 The sketch also shows a summary on screen and prints it to the console. For each stimulus type, the summary gives the median and mean reaction time, the number of valid trials, and the number of errors.
